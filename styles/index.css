@@ -17,7 +17,7 @@
 }
 
 body {
-  background: linear-gradient(rgba(0,0,0,0.9), rgba(0,0,0,0.9)), url('../images/code.jpg') center/cover no-repeat fixed;
+  background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)), url('../images/code.jpg') center/cover no-repeat fixed;
   color: var(--text-white);
   line-height: 1.6;
 }
@@ -74,6 +74,7 @@ h1, h2, h3, h4, h5 {
 .hero-content {
   position: relative;
   z-index: 2;
+  text-align: left;
 }
 
 .typing-text {
@@ -83,7 +84,6 @@ h1, h2, h3, h4, h5 {
   min-height: 30px;
 }
 
-/* Optional: Email & Socials */
 .fa-icons a {
   background: #444;
   color: white;
@@ -99,27 +99,37 @@ h1, h2, h3, h4, h5 {
   background: var(--primary-color);
 }
 
-
-/* About */
-#about {
+#about,
+#skills,
+#qualification,
+#experience {
+  background-color: rgba(28, 28, 30, 0.7);
   text-align: center;
-  color: #f87652;
 }
 
-#about .p {
+#about h2,
+#skills h2,
+#qualification h2,
+#experience h2 {
+  color: var(--primary-color);
+}
+
+#about .about-container,
+.qualification-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#about .p,
+#about p {
   max-width: 900px;
   margin: 30px auto;
   color: var(--text-light);
-}
-
-/* Skills */
-#skills {
-  background-color: rgba(28, 28, 30, 0.7);
   text-align: center;
-  color: #f87652;
 }
 
-#skills .skills-container {
+.skills-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -164,13 +174,6 @@ h1, h2, h3, h4, h5 {
   transform: scale(1.05);
 }
 
-/* Qualification */
-#qualification {
-  text-align: center;
-  color: #f87652;
-  
-}
-
 .qualification-list {
   display: flex;
   flex-direction: column;
@@ -208,23 +211,9 @@ h1, h2, h3, h4, h5 {
   margin-bottom: 5px;
 }
 
-#experience {
-  padding: 60px 20px;
-  background: rgba(28, 28, 30, 0.7);
-  color: #ffffff;
-  text-align: center;
-}
-
 #experience h2 {
   font-size: 36px;
   margin-bottom: 10px;
-  color: #f87652;
-}
-
-#experience hr {
-  width: 80px;
-  /* border: 2px solid #f87652; */
-  margin: 0 auto 40px;
 }
 
 .experience-list {
@@ -266,12 +255,11 @@ h1, h2, h3, h4, h5 {
   line-height: 1.6;
 }
 
-
-/* Footer */
 footer {
   background-color: #000;
   padding: 20px 0;
   color: var(--text-light);
+  text-align: center;
 }
 
 footer a {
@@ -283,19 +271,25 @@ footer a:hover {
   color: white;
 }
 
-/* Responsive */
 @media (max-width: 768px) {
-  .skills-container {
+  .skills-container,
+  .qualification-list,
+  .experience-list {
     flex-direction: column;
     align-items: center;
   }
 
-  .qualification-item {
+  .qualification-item,
+  .experience-item {
     flex-direction: column;
     text-align: center;
   }
 
   .qualification-details {
+    text-align: center;
+  }
+
+  .hero-content {
     text-align: center;
   }
 }
