@@ -1,0 +1,295 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;900&display=swap');
+
+:root {
+  --primary-color: #f87652;
+  --bg-dark: #1e1e2f;
+  --text-light: #cccccc;
+  --text-white: #ffffff;
+  --card-bg: rgba(60, 60, 65, 0.8);
+  --badge-bg: #444;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)), url('../images/code.jpg') center/cover no-repeat fixed;
+  color: var(--text-white);
+  line-height: 1.6;
+}
+
+section {
+  padding: 100px 20px 60px;
+}
+
+h1, h2, h3, h4, h5 {
+  font-weight: 600;
+}
+
+.navbar {
+  background: rgba(0, 0, 0, 0.95);
+}
+
+.nav-item {
+  margin: 0 8px;
+}
+
+.nav-link {
+  color: var(--text-white) !important;
+  position: relative;
+}
+
+.nav-link:hover::before {
+  content: '';
+  position: absolute;
+  bottom: 5px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--primary-color);
+}
+
+.hero_section {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 60px 20px;
+  overflow: hidden;
+}
+
+.hero_section #particles-js {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: left;
+}
+
+.typing-text {
+  font-size: 20px;
+  color: #ffffff;
+  margin-top: 10px;
+  min-height: 30px;
+}
+
+.fa-icons a {
+  background: #444;
+  color: white;
+  margin: 8px;
+  padding: 12px;
+  border-radius: 50%;
+  display: inline-block;
+  font-size: 16px;
+  transition: background 0.3s;
+}
+
+.fa-icons a:hover {
+  background: var(--primary-color);
+}
+
+#about,
+#skills,
+#qualification,
+#experience {
+  background-color: rgba(28, 28, 30, 0.7);
+  text-align: center;
+}
+
+#about h2,
+#skills h2,
+#qualification h2,
+#experience h2 {
+  color: var(--primary-color);
+}
+
+#about .about-container,
+.qualification-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#about .p,
+#about p {
+  max-width: 900px;
+  margin: 30px auto;
+  color: var(--text-light);
+  text-align: center;
+}
+
+.skills-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.skill-category {
+  background: var(--card-bg);
+  padding: 25px;
+  border-radius: 12px;
+  width: 260px;
+  min-height: 270px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.skill-category h5 {
+  margin-bottom: 15px;
+  color: white;
+  border-bottom: 2px solid var(--primary-color);
+  padding-bottom: 5px;
+  width: 100%;
+  text-align: center;
+}
+
+.badge {
+  display: inline-block;
+  background-color: var(--badge-bg);
+  color: white;
+  padding: 8px 14px;
+  border-radius: 20px;
+  font-size: 14px;
+  margin: 5px;
+  transition: all 0.3s ease-in-out;
+}
+
+.badge:hover {
+  background-color: var(--primary-color);
+  transform: scale(1.05);
+}
+
+.qualification-list {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  max-width: 900px;
+  margin: 40px auto 0;
+}
+
+.qualification-item {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  background: var(--card-bg);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+
+.qualification-item img {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  background: white;
+  border-radius: 10px;
+  padding: 5px;
+}
+
+.qualification-details {
+  text-align: left;
+  color: var(--text-light);
+}
+
+.qualification-details h4 {
+  color: white;
+  margin-bottom: 5px;
+}
+
+#experience h2 {
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+
+.experience-list {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.experience-item {
+  background-color: rgba(60, 60, 65, 0.6);
+  padding: 25px;
+  border-radius: 12px;
+  text-align: left;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.experience-item h4 {
+  color: #ffffff;
+  font-size: 20px;
+  margin-bottom: 5px;
+}
+
+.experience-duration {
+  font-size: 14px;
+  color: #bbbbbb;
+  margin-bottom: 10px;
+}
+
+.experience-item ul {
+  padding-left: 20px;
+}
+
+.experience-item ul li {
+  color: #cccccc;
+  font-size: 14px;
+  margin-bottom: 8px;
+  line-height: 1.6;
+}
+
+footer {
+  background-color: #000;
+  padding: 20px 0;
+  color: var(--text-light);
+  text-align: center;
+}
+
+footer a {
+  color: var(--text-light);
+  text-decoration: none;
+}
+
+footer a:hover {
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .skills-container,
+  .qualification-list,
+  .experience-list {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .qualification-item,
+  .experience-item {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .qualification-details {
+    text-align: center;
+  }
+
+  .hero-content {
+    text-align: center;
+  }
+}
