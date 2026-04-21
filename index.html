@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Kathyayani Sasala &mdash; Data Engineer</title>
+  <title>Kathyayani Sasala &mdash; AI/ML Engineer</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -16,1069 +16,493 @@
       --border: rgba(0,0,0,0.08);
       --tag-bg: #f1efe8;
       --tag-text: #5f5e5a;
-      --accent: #185fa5;
-      --accent-bg: #e6f1fb;
-      --accent-text: #0c447c;
+      --accent: #534ab7;
+      --accent-bg: #eeedfe;
+      --accent-text: #3c3489;
     }
 
     html { scroll-behavior: smooth; }
-    body {
-      background: var(--bg);
-      font-family: 'Inter', sans-serif;
-      color: var(--text);
-      line-height: 1.6;
-    }
+    body { background: var(--bg); font-family: 'Inter', sans-serif; color: var(--text); line-height: 1.6; }
 
     /* NAV */
     nav {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+      position: sticky; top: 0; z-index: 100;
+      display: flex; justify-content: space-between; align-items: center;
       padding: 1rem 2.5rem;
       background: rgba(248,247,244,0.93);
       backdrop-filter: blur(14px);
       border-bottom: 1px solid var(--border);
     }
-
-    .nav-logo {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.1rem;
-      font-weight: 700;
-      text-decoration: none;
-      color: var(--text);
-      line-height: 1.2;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 1.8rem;
-      list-style: none;
-      flex-wrap: wrap;
-    }
-
-    .nav-links a {
-      font-size: 0.76rem;
-      letter-spacing: 0.04em;
-      color: var(--muted);
-      text-decoration: none;
-      font-weight: 400;
-      transition: color 0.2s;
-    }
-
+    .nav-logo { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700; text-decoration: none; color: var(--text); }
+    .nav-links { display: flex; gap: 1.8rem; list-style: none; }
+    .nav-links a { font-size: 0.76rem; letter-spacing: 0.04em; color: var(--muted); text-decoration: none; font-weight: 400; transition: color 0.2s; }
     .nav-links a:hover { color: var(--text); }
 
-    /* LAYOUT */
-    .container {
-      max-width: 880px;
-      margin: 0 auto;
-      padding: 0 2.5rem;
-    }
+    .container { max-width: 880px; margin: 0 auto; padding: 0 2.5rem; }
 
-    section {
-      padding: 5rem 0;
-      opacity: 0;
-      transform: translateY(18px);
-      transition: opacity 0.55s ease, transform 0.55s ease;
-    }
-
-    section.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    section { padding: 5rem 0; opacity: 0; transform: translateY(18px); transition: opacity 0.55s ease, transform 0.55s ease; }
+    section.visible { opacity: 1; transform: translateY(0); }
 
     .section-label {
-      font-size: 0.72rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 2.5rem;
-      font-weight: 600;
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
+      font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 2.5rem; font-weight: 600;
+      display: flex; align-items: center; gap: 0.6rem;
     }
-
-    .section-label::after {
-      content: '';
-      flex: 1;
-      height: 1px;
-      background: var(--border);
-    }
+    .section-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
 
     /* HERO */
-    .hero {
-      min-height: 80vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding: 4rem 0 3rem;
-    }
+    .hero { min-height: 80vh; display: flex; flex-direction: column; justify-content: center; padding: 4rem 0 3rem; }
 
     .hero-eyebrow {
-      font-size: 0.72rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 1.25rem;
-      font-weight: 600;
-      display: flex;
-      align-items: center;
-      gap: 0.7rem;
+      font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 1.25rem; font-weight: 600;
+      display: flex; align-items: center; gap: 0.7rem;
     }
-
-    .hero-eyebrow::before {
-      content: '';
-      display: inline-block;
-      width: 24px;
-      height: 1px;
-      background: var(--accent);
-    }
+    .hero-eyebrow::before { content: ''; display: inline-block; width: 24px; height: 1px; background: var(--accent); }
 
     h1.hero-name {
       font-family: 'Playfair Display', serif;
-      font-size: clamp(2rem, 4.3vw, 3.2rem);
-      line-height: 1.08;
-      letter-spacing: -0.02em;
-      margin-bottom: 1.1rem;
-      font-weight: 700;
-      max-width: 720px;
+      font-size: clamp(2.2rem, 4.5vw, 3.4rem);
+      line-height: 1.12; letter-spacing: -0.02em;
+      margin-bottom: 1.25rem; font-weight: 700;
     }
+    h1.hero-name em { font-style: italic; color: var(--muted); }
 
-    h1.hero-name em {
-      font-style: italic;
-      color: var(--muted);
-    }
-
-    .hero-desc {
-      font-size: 0.93rem;
-      line-height: 1.85;
-      font-weight: 300;
-      color: var(--muted);
-      max-width: 500px;
-      margin-bottom: 2rem;
-    }
+    .hero-desc { font-size: 0.93rem; line-height: 1.85; font-weight: 300; color: var(--muted); max-width: 500px; margin-bottom: 2rem; }
 
     .hero-stats {
-      display: flex;
-      gap: 2.5rem;
-      margin-bottom: 2rem;
-      flex-wrap: wrap;
+      display: flex; gap: 2rem; margin-bottom: 2rem; flex-wrap: wrap;
       padding: 1.25rem 0;
       border-top: 1px solid var(--border);
       border-bottom: 1px solid var(--border);
     }
+    .hero-stat-val { font-family: 'Inter', sans-serif; font-size: 1.25rem; letter-spacing: -0.01em; line-height: 1; margin-bottom: 0.3rem; font-weight: 600; color: var(--text); }
+    .hero-stat-label { font-size: 0.67rem; color: var(--muted); letter-spacing: 0.07em; text-transform: uppercase; font-weight: 400; }
 
-    .hero-stat-val {
-      font-family: 'Inter', sans-serif;
-      font-size: 1.25rem;
-      letter-spacing: -0.01em;
-      line-height: 1;
-      margin-bottom: 0.3rem;
-      font-weight: 600;
-      color: var(--text);
-    }
-
-    .hero-stat-label {
-      font-size: 0.67rem;
-      color: var(--muted);
-      letter-spacing: 0.07em;
-      text-transform: uppercase;
-      font-weight: 400;
-    }
-
-    .hero-cta {
-      display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
-    }
+    .hero-cta { display: flex; gap: 1rem; flex-wrap: wrap; }
 
     .btn-primary {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.5rem;
-      background: var(--text);
-      color: #fff;
-      font-family: 'Inter', sans-serif;
-      font-weight: 500;
-      font-size: 0.78rem;
-      letter-spacing: 0.03em;
-      padding: 0.75rem 1.6rem;
-      border: none;
-      cursor: pointer;
-      border-radius: 3px;
-      transition: opacity 0.2s;
-      text-decoration: none;
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: var(--accent); color: #fff;
+      font-family: 'Inter', sans-serif; font-weight: 500; font-size: 0.78rem; letter-spacing: 0.03em;
+      padding: 0.75rem 1.6rem; border: none; cursor: pointer;
+      border-radius: 3px; transition: opacity 0.2s; text-decoration: none;
     }
-
     .btn-primary:hover { opacity: 0.82; }
 
     .btn-ghost {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.5rem;
-      background: transparent;
-      color: var(--muted);
-      font-family: 'Inter', sans-serif;
-      font-weight: 400;
-      font-size: 0.78rem;
-      letter-spacing: 0.03em;
-      padding: 0.75rem 1.6rem;
-      border: 1px solid var(--border);
-      cursor: pointer;
-      border-radius: 3px;
-      transition: all 0.2s;
-      text-decoration: none;
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: transparent; color: var(--muted);
+      font-family: 'Inter', sans-serif; font-weight: 400; font-size: 0.78rem; letter-spacing: 0.03em;
+      padding: 0.75rem 1.6rem; border: 1px solid var(--border); cursor: pointer;
+      border-radius: 3px; transition: all 0.2s; text-decoration: none;
     }
+    .btn-ghost:hover { border-color: var(--text); color: var(--text); }
 
-    .btn-ghost:hover {
-      border-color: var(--text);
-      color: var(--text);
-    }
-
-    .hero-divider {
-      width: 100%;
-      height: 1px;
-      background: var(--border);
-      margin-top: 3rem;
-    }
+    .hero-divider { width: 100%; height: 1px; background: var(--border); margin-top: 3rem; }
 
     /* ABOUT */
-    .about-grid {
-      display: grid;
-      grid-template-columns: 220px 1fr;
-      gap: 3rem;
-      align-items: start;
-    }
-
-    .about-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 6px;
-      padding: 1.5rem;
-      position: sticky;
-      top: 80px;
-    }
-
+    .about-grid { display: grid; grid-template-columns: 220px 1fr; gap: 3rem; align-items: start; }
+    .about-card { background: var(--surface); border: 1px solid var(--border); border-radius: 6px; padding: 1.5rem; position: sticky; top: 80px; }
     .about-avatar {
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
-      background: var(--accent-bg);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: 'Playfair Display', serif;
-      font-size: 1.3rem;
-      font-weight: 700;
-      color: var(--accent-text);
-      margin-bottom: 1rem;
+      width: 60px; height: 60px; border-radius: 50%; background: var(--accent-bg);
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 700; color: var(--accent-text); margin-bottom: 1rem;
     }
-
-    .about-card-name {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.05rem;
-      margin-bottom: 0.2rem;
-      font-weight: 700;
-    }
-
-    .about-card-role {
-      font-size: 0.73rem;
-      color: var(--muted);
-      margin-bottom: 1.25rem;
-    }
-
-    .about-card-detail {
-      font-size: 0.72rem;
-      color: var(--muted);
-      padding: 0.5rem 0;
-      border-top: 1px solid var(--border);
-      display: flex;
-      justify-content: space-between;
-      gap: 0.5rem;
-    }
-
-    .about-card-detail span:last-child {
-      color: var(--text);
-      text-align: right;
-    }
-
-    .status-dot {
-      display: inline-block;
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: #639922;
-      margin-right: 0.3rem;
-      animation: pulse 2.5s ease-in-out infinite;
-    }
-
-    @keyframes pulse {
-      0%,100% { opacity: 1; }
-      50% { opacity: 0.4; }
-    }
-
-    .about-text {
-      font-size: 0.9rem;
-      line-height: 1.85;
-      color: var(--muted);
-      font-weight: 300;
-    }
-
+    .about-card-name { font-family: 'Playfair Display', serif; font-size: 1.05rem; margin-bottom: 0.2rem; font-weight: 700; }
+    .about-card-role { font-size: 0.73rem; color: var(--muted); margin-bottom: 1.25rem; }
+    .about-card-detail { font-size: 0.72rem; color: var(--muted); padding: 0.5rem 0; border-top: 1px solid var(--border); display: flex; justify-content: space-between; gap: 0.5rem; }
+    .about-card-detail span:last-child { color: var(--text); text-align: right; }
+    .status-dot { display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: #639922; margin-right: 0.3rem; animation: pulse 2.5s ease-in-out infinite; }
+    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
+    .about-text { font-size: 0.9rem; line-height: 1.85; color: var(--muted); font-weight: 300; }
     .about-text p + p { margin-top: 1rem; }
 
     /* EXPERIENCE */
-    .exp-list {
-      display: flex;
-      flex-direction: column;
-      gap: 1px;
-      background: var(--border);
-      border: 1px solid var(--border);
-      border-radius: 6px;
-      overflow: hidden;
-    }
-
-    .exp-item {
-      background: var(--surface);
-      padding: 2rem;
-    }
-
-    .exp-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      margin-bottom: 0.75rem;
-      gap: 1rem;
-      flex-wrap: wrap;
-    }
-
-    .exp-role {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.35rem;
-      font-weight: 700;
-      margin-bottom: 0.25rem;
-    }
-
-    .exp-company {
-      font-size: 0.8rem;
-      color: var(--accent);
-      font-weight: 500;
-    }
-
-    .exp-date {
-      font-size: 0.72rem;
-      color: var(--muted);
-      letter-spacing: 0.04em;
-      white-space: nowrap;
-      padding-top: 0.3rem;
-    }
-
-    .exp-bullets {
-      list-style: none;
-      margin-top: 1rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0.6rem;
-    }
-
-    .exp-bullets li {
-      font-size: 0.85rem;
-      color: var(--muted);
-      font-weight: 300;
-      line-height: 1.75;
-      padding-left: 1rem;
-      position: relative;
-    }
-
-    .exp-bullets li::before {
-      content: '\2014';
-      position: absolute;
-      left: 0;
-      color: rgba(0,0,0,0.15);
-      font-size: 0.75rem;
-    }
-
-    .exp-tags {
-      display: flex;
-      gap: 0.35rem;
-      flex-wrap: wrap;
-      margin-top: 1.1rem;
-    }
+    .exp-list { display: flex; flex-direction: column; gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 6px; overflow: hidden; }
+    .exp-item { background: var(--surface); padding: 2rem; }
+    .exp-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.75rem; gap: 1rem; flex-wrap: wrap; }
+    .exp-role { font-family: 'Playfair Display', serif; font-size: 1.35rem; font-weight: 700; margin-bottom: 0.25rem; }
+    .exp-company { font-size: 0.8rem; color: var(--accent); font-weight: 500; }
+    .exp-date { font-size: 0.72rem; color: var(--muted); letter-spacing: 0.04em; white-space: nowrap; padding-top: 0.3rem; }
+    .exp-bullets { list-style: none; margin-top: 1rem; display: flex; flex-direction: column; gap: 0.6rem; }
+    .exp-bullets li { font-size: 0.85rem; color: var(--muted); font-weight: 300; line-height: 1.75; padding-left: 1rem; position: relative; }
+    .exp-bullets li::before { content: '&mdash;'; position: absolute; left: 0; color: rgba(0,0,0,0.15); font-size: 0.75rem; }
+    .exp-tags { display: flex; gap: 0.35rem; flex-wrap: wrap; margin-top: 1.1rem; }
 
     /* SKILLS */
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1px;
-      border: 1px solid var(--border);
-      border-radius: 6px;
-      overflow: hidden;
-      background: var(--border);
-    }
-
-    .skill-cell {
-      background: var(--surface);
-      padding: 1.25rem 1.5rem;
-    }
-
-    .skill-cell-label {
-      font-size: 0.68rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 0.75rem;
-      font-weight: 600;
-    }
-
-    .skill-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.35rem;
-    }
-
-    .tag {
-      font-size: 0.7rem;
-      padding: 0.28rem 0.6rem;
-      background: var(--tag-bg);
-      color: var(--tag-text);
-      border-radius: 3px;
-      font-weight: 400;
-    }
-
-    .tag-accent {
-      font-size: 0.7rem;
-      padding: 0.28rem 0.6rem;
-      background: var(--accent-bg);
-      color: var(--accent-text);
-      border-radius: 3px;
-      font-weight: 500;
-    }
+    .skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; border: 1px solid var(--border); border-radius: 6px; overflow: hidden; background: var(--border); }
+    .skill-cell { background: var(--surface); padding: 1.25rem 1.5rem; }
+    .skill-cell-label { font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.75rem; font-weight: 600; }
+    .skill-tags { display: flex; flex-wrap: wrap; gap: 0.35rem; }
+    .tag { font-size: 0.7rem; padding: 0.28rem 0.6rem; background: var(--tag-bg); color: var(--tag-text); border-radius: 3px; font-weight: 400; }
+    .tag-accent { font-size: 0.7rem; padding: 0.28rem 0.6rem; background: var(--accent-bg); color: var(--accent-text); border-radius: 3px; font-weight: 500; }
 
     /* CERTIFICATIONS */
-    .cert-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1px;
-      background: var(--border);
-      border: 1px solid var(--border);
-      border-radius: 6px;
-      overflow: hidden;
-    }
-
-    .cert-item {
-      background: var(--surface);
-      padding: 1.2rem 1.5rem;
-      display: flex;
-      align-items: flex-start;
-      gap: 0.75rem;
-    }
-
-    .cert-icon {
-      width: 34px;
-      height: 34px;
-      border-radius: 4px;
-      background: var(--accent-bg);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.68rem;
-      color: var(--accent-text);
-      font-weight: 700;
-      flex-shrink: 0;
-    }
-
-    .cert-name {
-      font-size: 0.82rem;
-      font-weight: 500;
-      line-height: 1.4;
-      margin-bottom: 0.2rem;
-    }
-
-    .cert-issuer {
-      font-size: 0.7rem;
-      color: var(--muted);
-    }
+    .cert-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 6px; overflow: hidden; }
+    .cert-item { background: var(--surface); padding: 1.2rem 1.5rem; display: flex; align-items: flex-start; gap: 0.75rem; }
+    .cert-icon { width: 34px; height: 34px; border-radius: 4px; background: var(--accent-bg); display: flex; align-items: center; justify-content: center; font-size: 0.68rem; color: var(--accent-text); font-weight: 700; flex-shrink: 0; }
+    .cert-name { font-size: 0.82rem; font-weight: 500; line-height: 1.4; margin-bottom: 0.2rem; }
+    .cert-issuer { font-size: 0.7rem; color: var(--muted); }
 
     /* CONTACT */
-    .contact-layout {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 3rem;
-      align-items: start;
-    }
-
-    .contact-heading {
-      font-family: 'Playfair Display', serif;
-      font-size: 2.4rem;
-      line-height: 1.12;
-      letter-spacing: -0.02em;
-      margin-bottom: 1rem;
-      font-weight: 700;
-    }
-
-    .contact-sub {
-      font-size: 0.9rem;
-      color: var(--muted);
-      line-height: 1.9;
-      margin-bottom: 1.75rem;
-      font-weight: 300;
-    }
-
-    .contact-links {
-      display: flex;
-      flex-direction: column;
-    }
-
-    .contact-link {
-      font-size: 0.8rem;
-      color: var(--muted);
-      text-decoration: none;
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
-      padding: 0.75rem 0;
-      border-bottom: 1px solid var(--border);
-      transition: color 0.15s;
-      font-weight: 400;
-    }
-
+    .contact-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; }
+    .contact-heading { font-family: 'Playfair Display', serif; font-size: 2.4rem; line-height: 1.12; letter-spacing: -0.02em; margin-bottom: 1rem; font-weight: 700; }
+    .contact-sub { font-size: 0.9rem; color: var(--muted); line-height: 1.9; margin-bottom: 1.75rem; font-weight: 300; }
+    .contact-links { display: flex; flex-direction: column; }
+    .contact-link { font-size: 0.8rem; color: var(--muted); text-decoration: none; display: flex; align-items: center; gap: 0.6rem; padding: 0.75rem 0; border-bottom: 1px solid var(--border); transition: color 0.15s; font-weight: 400; }
     .contact-link:hover { color: var(--text); }
-
-    .contact-form {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-    }
-
-    .form-field {
-      display: flex;
-      flex-direction: column;
-      gap: 0.4rem;
-    }
-
-    .form-label {
-      font-size: 0.68rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--muted);
-      font-weight: 500;
-    }
-
-    .form-input, .form-textarea {
-      font-family: 'Inter', sans-serif;
-      font-size: 0.85rem;
-      font-weight: 300;
-      padding: 0.7rem 0.9rem;
-      background: var(--surface);
-      color: var(--text);
-      border: 1px solid var(--border);
-      border-radius: 3px;
-      outline: none;
-      transition: border-color 0.15s;
-      width: 100%;
-    }
-
-    .form-input:focus, .form-textarea:focus { border-color: var(--text); }
+    .contact-form { display: flex; flex-direction: column; gap: 1rem; }
+    .form-field { display: flex; flex-direction: column; gap: 0.4rem; }
+    .form-label { font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); font-weight: 500; }
+    .form-input, .form-textarea { font-family: 'Inter', sans-serif; font-size: 0.85rem; font-weight: 300; padding: 0.7rem 0.9rem; background: var(--surface); color: var(--text); border: 1px solid var(--border); border-radius: 3px; outline: none; transition: border-color 0.15s; width: 100%; }
+    .form-input:focus, .form-textarea:focus { border-color: var(--accent); }
     .form-textarea { min-height: 110px; resize: vertical; }
 
-    /* FOOTER */
-    footer {
-      border-top: 1px solid var(--border);
-      padding: 2rem 2.5rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 0.7rem;
-      color: var(--muted);
-    }
+    footer { border-top: 1px solid var(--border); padding: 2rem 2.5rem; display: flex; justify-content: space-between; align-items: center; font-size: 0.7rem; color: var(--muted); }
 
-    /* RESPONSIVE */
     @media (max-width: 680px) {
-      nav {
-        padding: 0.9rem 1rem;
-        align-items: flex-start;
-        flex-direction: column;
-        gap: 0.75rem;
-      }
-
-      .nav-logo {
-        font-size: 1rem;
-      }
-
-      .nav-links {
-        gap: 0.65rem 1rem;
-        width: 100%;
-      }
-
-      .nav-links a {
-        font-size: 0.7rem;
-      }
-
-      .container {
-        padding: 0 1rem;
-      }
-
-      section {
-        padding: 3rem 0;
-      }
-
-      .hero {
-        min-height: auto;
-        padding: 2.2rem 0 2rem;
-      }
-
-      .hero-eyebrow {
-        font-size: 0.62rem;
-        letter-spacing: 0.12em;
-        margin-bottom: 1rem;
-      }
-
-      h1.hero-name {
-        font-size: 2rem;
-        line-height: 1.12;
-        margin-bottom: 1rem;
-      }
-
-      .hero-desc {
-        font-size: 0.88rem;
-        line-height: 1.75;
-        max-width: 100%;
-        margin-bottom: 1.5rem;
-      }
-
-      .hero-stats {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 1rem 1.25rem;
-        padding: 1rem 0;
-        margin-bottom: 1.5rem;
-      }
-
-      .hero-stat-val {
-        font-size: 1.05rem;
-      }
-
-      .hero-stat-label {
-        font-size: 0.62rem;
-        line-height: 1.4;
-      }
-
-      .hero-cta {
-        flex-direction: column;
-        gap: 0.75rem;
-      }
-
-      .btn-primary,
-      .btn-ghost {
-        width: 100%;
-      }
-
-      .about-grid {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-      }
-
-      .about-card {
-        position: static;
-      }
-
-      .skills-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .cert-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .contact-layout {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-      }
-
-      .contact-heading {
-        font-size: 2rem;
-      }
-
-      footer {
-        flex-direction: column;
-        gap: 0.5rem;
-        text-align: center;
-        padding: 1.5rem 1rem;
-      }
+      nav { padding: 1rem 1.25rem; }
+      .nav-links { gap: 1rem; }
+      .container { padding: 0 1.25rem; }
+      section { padding: 3rem 0; }
+      .about-grid { grid-template-columns: 1fr; }
+      .about-card { position: static; }
+      .skills-grid { grid-template-columns: 1fr 1fr; }
+      .cert-grid { grid-template-columns: 1fr; }
+      .contact-layout { grid-template-columns: 1fr; }
+      .hero-stats { gap: 1.5rem; }
+      footer { flex-direction: column; gap: 0.5rem; text-align: center; }
     }
-
-    @media (max-width: 420px) {
-      nav {
-        padding: 0.85rem 0.85rem;
-      }
-
-      .container {
-        padding: 0 0.85rem;
-      }
-
-      h1.hero-name {
-        font-size: 1.75rem;
-      }
-
-      .hero-stats {
-        grid-template-columns: 1fr;
-      }
-
-      .nav-links {
-        gap: 0.5rem 0.75rem;
-      }
-
-      .nav-links a {
-        font-size: 0.68rem;
-      }
-    }
+    @media (max-width: 420px) { .skills-grid { grid-template-columns: 1fr; } }
   </style>
 </head>
 <body>
 
-  <!-- NAV -->
-  <nav>
-    <a class="nav-logo" href="#">Kathyayani Sasala</a>
-    <ul class="nav-links">
-      <li><a href="#about">About</a></li>
-      <li><a href="#experience">Experience</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#certifications">Certifications</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </nav>
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#">Kathyayani Sasala</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#certifications">Certifications</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
 
-  <!-- HERO -->
-  <div class="container">
-    <div class="hero">
-      <div class="hero-eyebrow">Data Engineer &mdash; Florida, USA</div>
-      <!--<h1 class="hero-name">Turning raw data<br>into <em>real impact.</em></h1>-->
-      <p class="hero-desc">
-        5+ years designing and optimizing large-scale batch and real-time data pipelines across healthcare, finance, and enterprise analytics. Passionate about cloud-native architectures and making data trustworthy at scale.
-      </p>
-
-      <div class="hero-stats">
-        <div>
-          <div class="hero-stat-val">5+</div>
-          <div class="hero-stat-label">Years experience</div>
-        </div>
-        <div>
-          <div class="hero-stat-val">200TB+</div>
-          <div class="hero-stat-label">Data processed</div>
-        </div>
-        <div>
-          <div class="hero-stat-val">$3.4M</div>
-          <div class="hero-stat-label">Annual savings driven</div>
-        </div>
-        <div>
-          <div class="hero-stat-val">50%</div>
-          <div class="hero-stat-label">Manual effort reduced</div>
-        </div>
+<!-- HERO -->
+<div class="container">
+  <div class="hero">
+    <div class="hero-eyebrow">AI/ML Engineer &mdash; Florida, USA</div>
+    <!--<h1 class="hero-name">Building intelligent<br>systems that <em>think & act.</em></h1>--?
+    <p class="hero-desc">4+ years engineering AI systems — from multi-agent LLM pipelines to deep learning models in healthcare and finance. Turning complex problems into production-ready AI solutions.</p>
+    <div class="hero-stats">
+      <div>
+        <div class="hero-stat-val">4+</div>
+        <div class="hero-stat-label">Years experience</div>
       </div>
-
-      <div class="hero-cta">
-        <a class="btn-primary" href="#experience">View experience &rarr;</a>
-        <a class="btn-ghost" href="#contact">Get in touch</a>
+      <div>
+        <div class="hero-stat-val">25%</div>
+        <div class="hero-stat-label">Model accuracy boost</div>
       </div>
-
-      <div class="hero-divider"></div>
+      <div>
+        <div class="hero-stat-val">10K+</div>
+        <div class="hero-stat-label">Monte Carlo simulations</div>
+      </div>
+      <div>
+        <div class="hero-stat-val">20%</div>
+        <div class="hero-stat-label">Disease detection improved</div>
+      </div>
     </div>
+    <div class="hero-cta">
+      <a class="btn-primary" href="#experience">View experience &rarr;</a>
+      <a class="btn-ghost" href="#contact">Get in touch</a>
+    </div>
+    <div class="hero-divider"></div>
   </div>
+</div>
 
-  <!-- ABOUT -->
-  <div class="container">
-    <section id="about">
-      <div class="section-label">About me</div>
-      <div class="about-grid">
-        <div class="about-card">
-          <div class="about-avatar">KS</div>
-          <div class="about-card-name">Kathyayani Sasala</div>
-          <div class="about-card-role">Data Engineer</div>
-          <div class="about-card-detail"><span>Location</span><span>Florida, USA</span></div>
-          <div class="about-card-detail"><span>Experience</span><span>5+ years</span></div>
-          <div class="about-card-detail"><span>Education</span><span>M.S. CS &mdash; FAU</span></div>
-          <div class="about-card-detail"><span>Phone</span><span>+1 (561) 817-3440</span></div>
-          <div class="about-card-detail"><span>Status</span><span><span class="status-dot"></span>Open to work</span></div>
+<!-- ABOUT -->
+<div class="container">
+  <section id="about">
+    <div class="section-label">About me</div>
+    <div class="about-grid">
+      <div class="about-card">
+        <div class="about-avatar">KS</div>
+        <div class="about-card-name">Kathyayani Sasala</div>
+        <div class="about-card-role">AI/ML Engineer</div>
+        <div class="about-card-detail"><span>Location</span><span>Florida, USA</span></div>
+        <div class="about-card-detail"><span>Experience</span><span>4+ years</span></div>
+        <div class="about-card-detail"><span>Education</span><span>M.S. CS &mdash; FAU</span></div>
+        <div class="about-card-detail"><span>Phone</span><span>+1 (561) 336-0407</span></div>
+        <div class="about-card-detail"><span>Status</span><span><span class="status-dot"></span>Open to work</span></div>
+      </div>
+      <div class="about-text">
+        <p>I'm an AI/ML Engineer with 4+ years of experience designing, developing, and deploying machine learning models and AI systems across healthcare and financial domains.</p>
+        <p>I specialize in agentic AI systems and LLM-driven applications — building multi-agent workflows using CrewAI that automate complex pipelines, enable real-time decision-making, and translate business goals into measurable mathematical objectives.</p>
+        <p>My deep learning expertise spans CNNs, RNNs, Transformers, and GANs, with hands-on experience deploying models on AWS SageMaker, GCP, and Azure using MLflow, Docker, and Kubernetes.</p>
+        <p>I thrive at the intersection of cutting-edge AI research and production engineering — building systems that are not just accurate, but reliable, scalable, and explainable.</p>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- EXPERIENCE -->
+<div class="container">
+  <section id="experience">
+    <div class="section-label">Experience</div>
+    <div class="exp-list">
+
+      <!-- Wells Fargo -->
+      <div class="exp-item">
+        <div class="exp-header">
+          <div>
+            <div class="exp-role">AI/ML Engineer</div>
+            <div class="exp-company">Wells Fargo, USA</div>
+          </div>
+          <div class="exp-date">Feb 2025 &mdash; Present</div>
         </div>
-
-        <div class="about-text">
-          <p>I'm a Data Engineer with 5+ years of experience designing, building, and optimizing large-scale batch and real-time data solutions across healthcare, financial, and enterprise analytics domains.</p>
-          <p>I bring proven expertise in developing scalable ETL/ELT pipelines, integrating diverse data sources and APIs, and ensuring data quality, reliability, and operational efficiency in production environments.</p>
-          <p>With deep experience in cloud-native architectures (AWS, Azure, GCP) and big data platforms (Spark, Kafka, Hadoop), I help organizations process data at 200+ TB scale and turn complexity into clarity.</p>
-          <p>I thrive in Agile environments, leveraging modern CI/CD practices, data governance frameworks, and cross-functional collaboration to drive scalable, decision-ready data products.</p>
+        <ul class="exp-bullets">
+          <li>Architected a Multi-Agent Investment System using CrewAI and a Hierarchical Router Pattern — automating the end-to-end pipeline from market data ingestion to final client reporting.</li>
+          <li>Engineered a custom ReAct (Reasoning and Acting) loop within a Manager LLM to dynamically validate portfolio outputs against client constraints (Sharpe Ratio, volatility targets, regulatory limits).</li>
+          <li>Developed a high-performance predictive engine using XGBoost on AWS SageMaker to forecast asset returns with higher directional accuracy than linear baselines.</li>
+          <li>Implemented a hybrid Optimization Engine leveraging Bayesian Optimization for high-dimensional weight exploration and Genetic Algorithms for robust asset diversification.</li>
+          <li>Built a Reinforcement Learning (RL) feedback loop that penalizes the agent for poor simulated performance, enabling the model to learn optimal rebalancing strategies in near real-time.</li>
+          <li>Designed a Risk Audit module with Monte Carlo Simulations (10,000+ scenarios) to stress-test portfolios before deployment to the client dashboard.</li>
+          <li>Optimized real-time data pipelines by integrating AWS Kinesis for streaming market data with historical data in Amazon S3 for the Agentic AI system.</li>
+          <li>Containerized and deployed the solution on AWS EKS (Kubernetes), ensuring low-latency inference and automated scaling to handle peak trading traffic.</li>
+        </ul>
+        <div class="exp-tags">
+          <span class="tag-accent">CrewAI</span>
+          <span class="tag-accent">AWS SageMaker</span>
+          <span class="tag-accent">Reinforcement Learning</span>
+          <span class="tag">XGBoost</span>
+          <span class="tag">Bayesian Optimization</span>
+          <span class="tag">AWS Kinesis</span>
+          <span class="tag">Kubernetes</span>
+          <span class="tag">Power BI</span>
+          <span class="tag">Monte Carlo</span>
         </div>
       </div>
-    </section>
-  </div>
 
-  <!-- EXPERIENCE -->
-  <div class="container">
-    <section id="experience">
-      <div class="section-label">Experience</div>
-      <div class="exp-list">
-
-        <div class="exp-item">
-          <div class="exp-header">
-            <div>
-              <div class="exp-role">Data Engineer</div>
-              <div class="exp-company">Kaiser Permanente, USA</div>
-            </div>
-            <div class="exp-date">Aug 2023 &mdash; Present</div>
+      <!-- Atos -->
+      <div class="exp-item">
+        <div class="exp-header">
+          <div>
+            <div class="exp-role">AI/ML Engineer</div>
+            <div class="exp-company">Atos, India</div>
           </div>
-
-          <ul class="exp-bullets">
-            <li>Designed and implemented a scalable cloud-based data lakehouse on AWS, integrating 2TB+ healthcare data (claims, EHR, pharmacy, membership, provider) to enable unified analytics and cost analysis.</li>
-            <li>Built and automated robust ETL/ELT pipelines using Airflow, dbt, Spark, and NiFi, processing ~25M records daily from 12+ sources &mdash; reducing manual data preparation by 50%.</li>
-            <li>Implemented SCD Type 2 modeling in Snowflake to track historical changes in provider networks, member enrollments, and coverage for trend analysis, financial reporting, and audits.</li>
-            <li>Optimized large-scale data processing using Spark on AWS EMR &mdash; improving performance by 32% and reducing infrastructure costs through efficient partitioning and storage strategies.</li>
-            <li>Led migration of 200+ TB data from Oracle to Snowflake, maintaining full metadata tracking, lineage, and version-controlled transformations via dbt.</li>
-            <li>Built interactive Power BI dashboards tracking readmission rates, provider leakage, and care compliance &mdash; reducing reporting time from 2 days to 3 hours.</li>
-            <li>Refactored legacy pipelines with CI/CD (GitHub Actions) and automated testing, improving reliability and cutting processing time by 45%.</li>
-            <li>Enabled faster identification of high-risk patients and inefficient care patterns, contributing to ~$3.4M annual cost savings.</li>
-          </ul>
-
-          <div class="exp-tags">
-            <span class="tag-accent">Snowflake</span>
-            <span class="tag-accent">AWS EMR</span>
-            <span class="tag-accent">Apache Iceberg</span>
-            <span class="tag">Airflow</span>
-            <span class="tag">dbt</span>
-            <span class="tag">Apache Spark</span>
-            <span class="tag">Power BI</span>
-            <span class="tag">Python</span>
-            <span class="tag">NiFi</span>
-            <span class="tag">HIPAA</span>
-          </div>
+          <div class="exp-date">Nov 2019 &mdash; Dec 2022</div>
         </div>
-
-        <div class="exp-item">
-          <div class="exp-header">
-            <div>
-              <div class="exp-role">Data Engineer</div>
-              <div class="exp-company">Accenture, India</div>
-            </div>
-            <div class="exp-date">Nov 2019 &mdash; Dec 2022</div>
-          </div>
-
-          <ul class="exp-bullets">
-            <li>Engineered real-time ingestion pipelines using Apache Kafka (Azure Event Hubs), processing 10M+ daily financial records for low-latency trading analytics and market insights.</li>
-            <li>Built scalable PySpark transformation pipelines on Azure Databricks, integrating trades, portfolios, counterparty risk, and market data across 5TB+ datasets.</li>
-            <li>Designed data models using ER diagrams and star schemas for financial instruments, trades, and client hierarchies &mdash; improving query performance by 40%.</li>
-            <li>Optimized ML pipelines with Azure Machine Learning and scikit-learn, increasing prediction accuracy by 20% for credit risk and trading anomaly detection.</li>
-            <li>Developed Tableau dashboards for P&amp;L, VaR exposure, and trade reconciliation &mdash; boosting stakeholder engagement by 50% and reducing report delivery time by 15%.</li>
-            <li>Orchestrated 100+ ETL workflows using Azure Data Factory, Apache Airflow, and AKS, maintaining 99.5% SLA with automated failover and CI/CD deployments.</li>
-            <li>Architected a hybrid data platform connecting on-prem Hadoop with Azure Blob Storage and PolyBase, enabling 1PB+ data migration and federated querying.</li>
-          </ul>
-
-          <div class="exp-tags">
-            <span class="tag-accent">Azure Databricks</span>
-            <span class="tag-accent">Apache Kafka</span>
-            <span class="tag">PySpark</span>
-            <span class="tag">Azure ML</span>
-            <span class="tag">Hadoop</span>
-            <span class="tag">Tableau</span>
-            <span class="tag">MongoDB</span>
-            <span class="tag">Azure Synapse</span>
-            <span class="tag">Terraform</span>
-          </div>
-        </div>
-
-      </div>
-    </section>
-  </div>
-
-  <!-- SKILLS -->
-  <div class="container">
-    <section id="skills">
-      <div class="section-label">Skills</div>
-      <div class="skills-grid">
-        <div class="skill-cell">
-          <div class="skill-cell-label">Languages</div>
-          <div class="skill-tags">
-            <span class="tag">Python</span><span class="tag">SQL</span><span class="tag">Scala</span>
-            <span class="tag">R</span><span class="tag">Java</span><span class="tag">PL/SQL</span>
-          </div>
-        </div>
-        <div class="skill-cell">
-          <div class="skill-cell-label">Cloud Platforms</div>
-          <div class="skill-tags">
-            <span class="tag">AWS (S3, Glue, EMR, Redshift)</span>
-            <span class="tag">Azure Databricks</span>
-            <span class="tag">GCP BigQuery</span>
-          </div>
-        </div>
-        <div class="skill-cell">
-          <div class="skill-cell-label">Big Data &amp; Pipelines</div>
-          <div class="skill-tags">
-            <span class="tag">Apache Spark</span><span class="tag">PySpark</span>
-            <span class="tag">Kafka</span><span class="tag">Airflow</span>
-            <span class="tag">Hadoop</span><span class="tag">dbt</span>
-            <span class="tag">NiFi</span><span class="tag">Apache Beam</span>
-          </div>
-        </div>
-        <div class="skill-cell">
-          <div class="skill-cell-label">Data Warehouses</div>
-          <div class="skill-tags">
-            <span class="tag">Snowflake</span><span class="tag">Redshift</span>
-            <span class="tag">Databricks</span><span class="tag">BigQuery</span>
-            <span class="tag">Azure Synapse</span>
-          </div>
-        </div>
-        <div class="skill-cell">
-          <div class="skill-cell-label">Databases</div>
-          <div class="skill-tags">
-            <span class="tag">PostgreSQL</span><span class="tag">MySQL</span>
-            <span class="tag">Oracle</span><span class="tag">MongoDB</span>
-            <span class="tag">DynamoDB</span><span class="tag">SQL Server</span>
-          </div>
-        </div>
-        <div class="skill-cell">
-          <div class="skill-cell-label">BI &amp; Visualization</div>
-          <div class="skill-tags">
-            <span class="tag">Power BI</span><span class="tag">Tableau</span>
-            <span class="tag">QuickSight</span><span class="tag">Looker</span>
-            <span class="tag">Qlik</span>
-          </div>
-        </div>
-        <div class="skill-cell">
-          <div class="skill-cell-label">DevOps &amp; CI/CD</div>
-          <div class="skill-tags">
-            <span class="tag">Docker</span><span class="tag">Kubernetes</span>
-            <span class="tag">Terraform</span><span class="tag">Jenkins</span>
-            <span class="tag">GitHub Actions</span><span class="tag">Maven</span>
-          </div>
-        </div>
-        <div class="skill-cell">
-          <div class="skill-cell-label">ML &amp; Analytics</div>
-          <div class="skill-tags">
-            <span class="tag">Scikit-learn</span><span class="tag">TensorFlow</span>
-            <span class="tag">NLP</span><span class="tag">Spark MLlib</span>
-            <span class="tag">Statistical Modeling</span>
-          </div>
-        </div>
-        <div class="skill-cell">
-          <div class="skill-cell-label">Libraries</div>
-          <div class="skill-tags">
-            <span class="tag">Pandas</span><span class="tag">NumPy</span>
-            <span class="tag">SciPy</span><span class="tag">Matplotlib</span>
-            <span class="tag">Seaborn</span>
-          </div>
+        <ul class="exp-bullets">
+          <li>Created a predictive analytics platform for early detection of chronic diseases (diabetes, heart disease), enabling proactive healthcare interventions and improved patient outcomes.</li>
+          <li>Enhanced disease risk prediction accuracy by 20% compared to traditional methods — enabling earlier identification of high-risk patients and improving preventive care strategies.</li>
+          <li>Developed deep learning models using Keras and PyTorch to predict patient risk based on historical health data, with regularization techniques improving generalization by 25%.</li>
+          <li>Applied XGBoost gradient boosting on imbalanced healthcare datasets, significantly improving prediction performance and model accuracy.</li>
+          <li>Employed GANs to generate synthetic medical images (X-rays, MRIs) for training disease prediction models — addressing the challenge of scarce labeled medical data.</li>
+          <li>Automated model retraining pipelines with Apache Airflow, enabling regular updates based on new patient data to maintain model relevance and accuracy.</li>
+          <li>Built Python ETL pipelines to automate data extraction, transformation, and loading — reducing data preprocessing time by 30%.</li>
+          <li>Implemented Tableau dashboards for healthcare providers to filter and drill down into patient-specific risk data for personalized treatment planning.</li>
+        </ul>
+        <div class="exp-tags">
+          <span class="tag-accent">TensorFlow/Keras</span>
+          <span class="tag-accent">PyTorch</span>
+          <span class="tag-accent">GANs</span>
+          <span class="tag">XGBoost</span>
+          <span class="tag">Apache Airflow</span>
+          <span class="tag">Pandas/NumPy</span>
+          <span class="tag">Tableau</span>
+          <span class="tag">Python ETL</span>
         </div>
       </div>
-    </section>
-  </div>
 
-  <!-- CERTIFICATIONS -->
-  <div class="container">
-    <section id="certifications">
-      <div class="section-label">Certifications</div>
-      <div class="cert-grid">
-        <div class="cert-item">
-          <div class="cert-icon">AWS</div>
-          <div>
-            <div class="cert-name">AWS Certified Developer &mdash; Associate (DVA-C02)</div>
-            <div class="cert-issuer">Amazon Web Services</div>
-          </div>
-        </div>
-        <div class="cert-item">
-          <div class="cert-icon">AWS</div>
-          <div>
-            <div class="cert-name">AWS Cloud Quest: Cloud Practitioner</div>
-            <div class="cert-issuer">Amazon Web Services</div>
-          </div>
-        </div>
-        <div class="cert-item">
-          <div class="cert-icon">SN</div>
-          <div>
-            <div class="cert-name">ServiceNow Certified System Administrator</div>
-            <div class="cert-issuer">ServiceNow</div>
-          </div>
-        </div>
-        <div class="cert-item">
-          <div class="cert-icon">Py</div>
-          <div>
-            <div class="cert-name">Data Analysis with Python</div>
-            <div class="cert-issuer">FreeCodeCamp</div>
-          </div>
-        </div>
-        <div class="cert-item">
-          <div class="cert-icon">Do</div>
-          <div>
-            <div class="cert-name">Docker Foundations Professional Certificate</div>
-            <div class="cert-issuer">Docker &amp; LinkedIn Learning</div>
-          </div>
-        </div>
-        <div class="cert-item">
-          <div class="cert-icon">CP</div>
-          <div>
-            <div class="cert-name">Intermediate Technical Interview Prep</div>
-            <div class="cert-issuer">CodePath</div>
-          </div>
+    </div>
+  </section>
+</div>
+
+<!-- SKILLS -->
+<div class="container">
+  <section id="skills">
+    <div class="section-label">Skills</div>
+    <div class="skills-grid">
+      <div class="skill-cell">
+        <div class="skill-cell-label">Languages</div>
+        <div class="skill-tags">
+          <span class="tag">Python</span><span class="tag">R</span><span class="tag">Java</span>
+          <span class="tag">C++</span><span class="tag">SQL</span><span class="tag">Bash</span>
         </div>
       </div>
-    </section>
-  </div>
+      <div class="skill-cell">
+        <div class="skill-cell-label">ML Frameworks</div>
+        <div class="skill-tags">
+          <span class="tag">TensorFlow</span><span class="tag">PyTorch</span><span class="tag">Keras</span>
+          <span class="tag">Scikit-learn</span><span class="tag">XGBoost</span><span class="tag">LightGBM</span>
+          <span class="tag">CatBoost</span><span class="tag">Hugging Face</span>
+        </div>
+      </div>
+      <div class="skill-cell">
+        <div class="skill-cell-label">Agentic AI & LLMs</div>
+        <div class="skill-tags">
+          <span class="tag">CrewAI</span><span class="tag">LLM Orchestration</span>
+          <span class="tag">Multi-Agent Systems</span><span class="tag">ReAct Loops</span>
+          <span class="tag">RAG Pipelines</span>
+        </div>
+      </div>
+      <div class="skill-cell">
+        <div class="skill-cell-label">Deep Learning</div>
+        <div class="skill-tags">
+          <span class="tag">CNNs</span><span class="tag">RNNs</span><span class="tag">Transformers</span>
+          <span class="tag">GANs</span><span class="tag">YOLO</span><span class="tag">OpenCV</span>
+        </div>
+      </div>
+      <div class="skill-cell">
+        <div class="skill-cell-label">Cloud Platforms</div>
+        <div class="skill-tags">
+          <span class="tag">AWS SageMaker</span><span class="tag">AWS Lambda</span>
+          <span class="tag">AWS EKS</span><span class="tag">GCP AI Platform</span>
+          <span class="tag">Azure ML Studio</span><span class="tag">Azure Databricks</span>
+        </div>
+      </div>
+      <div class="skill-cell">
+        <div class="skill-cell-label">Deployment & MLOps</div>
+        <div class="skill-tags">
+          <span class="tag">Docker</span><span class="tag">Kubernetes</span>
+          <span class="tag">MLflow</span><span class="tag">Flask</span>
+          <span class="tag">TensorFlow Serving</span><span class="tag">CI/CD</span>
+        </div>
+      </div>
+      <div class="skill-cell">
+        <div class="skill-cell-label">NLP</div>
+        <div class="skill-tags">
+          <span class="tag">Sentiment Analysis</span><span class="tag">NER</span>
+          <span class="tag">spaCy</span><span class="tag">NLTK</span>
+          <span class="tag">Text Processing</span>
+        </div>
+      </div>
+      <div class="skill-cell">
+        <div class="skill-cell-label">Big Data</div>
+        <div class="skill-tags">
+          <span class="tag">Apache Spark</span><span class="tag">Hadoop</span>
+          <span class="tag">Kafka</span><span class="tag">BigQuery</span>
+          <span class="tag">AWS Kinesis</span>
+        </div>
+      </div>
+      <div class="skill-cell">
+        <div class="skill-cell-label">Data Science</div>
+        <div class="skill-tags">
+          <span class="tag">Pandas</span><span class="tag">NumPy</span>
+          <span class="tag">SciPy</span><span class="tag">Matplotlib</span>
+          <span class="tag">Plotly</span><span class="tag">Statsmodels</span>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
 
-  <!-- CONTACT -->
-  <div class="container">
-    <section id="contact">
-      <div class="section-label">Contact</div>
-      <div class="contact-layout">
+<!-- CERTIFICATIONS -->
+<div class="container">
+  <section id="certifications">
+    <div class="section-label">Certifications</div>
+    <div class="cert-grid">
+      <div class="cert-item">
+        <div class="cert-icon">AWS</div>
         <div>
-          <div class="contact-heading">Let's work<br>together.</div>
-          <p class="contact-sub">I'm open to full-time Data Engineer roles and exciting data projects. Feel free to reach out &mdash; I'd love to connect.</p>
-          <div class="contact-links">
-            <a class="contact-link" href="mailto:sasalakathyayani509&#64;gmail.com">&#9993;&nbsp; sasalakathyayani509&#64;gmail.com</a>
-            <a class="contact-link" href="tel:+15618173440">&#9742;&nbsp; +1 (561) 817-3440</a>
-            <a class="contact-link" href="https://www.linkedin.com/in/kathyayani-sasala509/" target="_blank">&#9670;&nbsp; LinkedIn Profile</a>
-            <a class="contact-link">&#128205;&nbsp; Florida, USA</a>
-          </div>
+          <div class="cert-name">AWS Certified Developer &mdash; Associate</div>
+          <div class="cert-issuer">Amazon Web Services</div>
         </div>
-
-        <form class="contact-form" onsubmit="handleSubmit(event)">
-          <div class="form-field">
-            <label class="form-label" for="name">Name</label>
-            <input class="form-input" id="name" type="text" placeholder="Your name" required />
-          </div>
-          <div class="form-field">
-            <label class="form-label" for="femail">Email</label>
-            <input class="form-input" id="femail" type="email" placeholder="your@email.com" required />
-          </div>
-          <div class="form-field">
-            <label class="form-label" for="message">Message</label>
-            <textarea class="form-textarea" id="message" placeholder="Tell me about the opportunity..." required></textarea>
-          </div>
-          <button type="submit" class="btn-primary">Send message &rarr;</button>
-        </form>
       </div>
-    </section>
-  </div>
+      <div class="cert-item">
+        <div class="cert-icon">AWS</div>
+        <div>
+          <div class="cert-name">AWS Cloud Quest: Cloud Practitioner</div>
+          <div class="cert-issuer">Amazon Web Services</div>
+        </div>
+      </div>
+      <div class="cert-item">
+        <div class="cert-icon">Py</div>
+        <div>
+          <div class="cert-name">Data Analysis with Python</div>
+          <div class="cert-issuer">FreeCodeCamp</div>
+        </div>
+      </div>
+      <div class="cert-item">
+        <div class="cert-icon">SN</div>
+        <div>
+          <div class="cert-name">ServiceNow Certified System Administrator</div>
+          <div class="cert-issuer">ServiceNow</div>
+        </div>
+      </div>
+      <div class="cert-item">
+        <div class="cert-icon">Do</div>
+        <div>
+          <div class="cert-name">Docker Foundations Professional Certificate</div>
+          <div class="cert-issuer">Docker &amp; LinkedIn Learning</div>
+        </div>
+      </div>
+      <div class="cert-item">
+        <div class="cert-icon">CP</div>
+        <div>
+          <div class="cert-name">Intermediate Technical Interview Prep</div>
+          <div class="cert-issuer">CodePath</div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
 
-  <!-- FOOTER -->
-  <footer>
-    <span>&copy; 2026 Kathyayani Sasala</span>
-    <span><span class="status-dot"></span>Open to opportunities</span>
-  </footer>
+<!-- CONTACT -->
+<div class="container">
+  <section id="contact">
+    <div class="section-label">Contact</div>
+    <div class="contact-layout">
+      <div>
+        <div class="contact-heading">Let's build<br>something smart.</div>
+        <p class="contact-sub">I'm open to full-time AI/ML Engineer roles and exciting AI projects. Feel free to reach out &mdash; I'd love to connect.</p>
+        <div class="contact-links">
+          <a class="contact-link" href="mailto:sasala.kathyayani97@gmail.com">&#9993;&nbsp; sasala.kathyayani97&#64;gmail.com</a>
+          <a class="contact-link" href="tel:+15613360407">&#9742;&nbsp; +1 (561) 336-0407</a>
+          <a class="contact-link" href="https://www.linkedin.com/in/kathyayanisasala" target="_blank">&#9670;&nbsp; LinkedIn Profile</a>
+          <a class="contact-link">&#128205;&nbsp; Florida, USA</a>
+        </div>
+      </div>
+      <form class="contact-form" onsubmit="handleSubmit(event)">
+        <div class="form-field">
+          <label class="form-label" for="name">Name</label>
+          <input class="form-input" id="name" type="text" placeholder="Your name" required />
+        </div>
+        <div class="form-field">
+          <label class="form-label" for="femail">Email</label>
+          <input class="form-input" id="femail" type="email" placeholder="your@email.com" required />
+        </div>
+        <div class="form-field">
+          <label class="form-label" for="message">Message</label>
+          <textarea class="form-textarea" id="message" placeholder="Tell me about the opportunity..." required></textarea>
+        </div>
+        <button type="submit" class="btn-primary">Send message &rarr;</button>
+      </form>
+    </div>
+  </section>
+</div>
 
-  <script>
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((e) => {
-        if (e.isIntersecting) e.target.classList.add('visible');
-      });
-    }, { threshold: 0.07 });
+<!-- FOOTER -->
+<footer>
+  <span>&copy; 2026 Kathyayani Sasala</span>
+  <span><span class="status-dot"></span>Open to opportunities</span>
+</footer>
 
-    document.querySelectorAll('section').forEach((s) => observer.observe(s));
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.07 });
+  document.querySelectorAll('section').forEach(s => observer.observe(s));
 
-    function handleSubmit(e) {
-      e.preventDefault();
-      const name = document.getElementById('name').value;
-      alert('Thanks, ' + name + '! Your message was received.');
-      e.target.reset();
-    }
-  </script>
+  function handleSubmit(e) {
+    e.preventDefault();
+    const name = document.getElementById('name').value;
+    alert('Thanks, ' + name + '! Your message was received.');
+    e.target.reset();
+  }
+</script>
 </body>
 </html>
